@@ -9,25 +9,30 @@
     <script src="js/stock.js"></script>
 
     <!-- StyleSheet -->
-    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/app.css">    
 
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Bootstrap js-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h2>Nuevo Productos</h2>
+    <h2>Nuevo Producto</h2>
 
     <div ng-controller="StockController">
         <form name="productForm" novalidate>
             
             <p>
-                Codigo:<br>
+                Código:<br>
                 <input type="text" name="code" ng-model="code" required>
-                <span style="color:red" ng-show="productForm.code.$dirty && productForm.code.$invalid">
-                <span ng-show="productForm.code.$error.required">Code is required.</span>
+                <span class="glyphicon glyphicon-alert" style="color:red" 
+                ng-show="productForm.code.$dirty && productForm.code.$invalid">
+                <span ng-show="productForm.code.$error.required">El código es requerido.</span>
                 </span>
             </p>
 
             <p>
-                <input type="submit" ng-disabled="productForm.code.$dirty && productForm.code.$invalid">
+                <input type="submit" ng-disabled="productForm.code.$pristine || productForm.code.$invalid">
             </p>
         </form>
     </div>
