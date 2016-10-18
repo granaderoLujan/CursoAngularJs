@@ -1,8 +1,8 @@
 var app = angular.module('stockApp');
-app.directive("navbar", function(){
+app.directive("navbarStock", function(){
     return{
-        template : '<a class="btn btn-success" href="add.html"><span class="glyphicon glyphicon-plus"></span>Agregar Producto</a>',
-        restrict : "C" //Class
+        template : '<a class="btn btn-success" href="#/partialsViews/add.html"><span class="glyphicon glyphicon-plus"></span>Agregar Producto</a>',
+        restrict : "E" //Class
     };
 });
 
