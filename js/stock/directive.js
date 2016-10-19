@@ -1,14 +1,14 @@
 var app = angular.module('stockApp');
 app.directive("navbarStock", function(){
     return{
-        template : '<a class="btn btn-success" href="#/partialsViews/add.html"><span class="glyphicon glyphicon-plus"></span>Agregar Producto</a>',
+        template : '<a class="btn btn-success" href="#/stock/add.html"><span class="glyphicon glyphicon-plus"></span>Agregar Producto</a>',
         restrict : "E" //Class
     };
 });
 
 app.directive("productGrid",function(){
     return{
-        template : true,
+        replace : true,
         restrict : "E", //Element Name
         templteUrl : 'partialsViews/productGrid.html'
     }

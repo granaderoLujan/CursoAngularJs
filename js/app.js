@@ -1,13 +1,6 @@
 'use strict';
-var app = angular.module('stockApp', ["ngRoute"]);
-app.config(function($routeProvider){
-    $routeProvider
-    .when("/stock/list", {
-        templateUrl : "partialsViews/productGrid.html",
-        controller:'StockController'
-    })
-    .when("/stock/add", {
-        templateUrl : "partialsViews/add.html",
-        controller: 'StockController'
-    })
-});
+var app = angular.module('stockApp', ["ngRoute", "accountModule", "dashboardModule", "stockModule"]);
+
+angular.module('accountModule',['auth0']);
+angular.module('dashboardModule',[]);
+angular.module('stockModule',[]);

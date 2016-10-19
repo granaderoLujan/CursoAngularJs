@@ -8,6 +8,7 @@
     <script src="js/filter.js"></script>    
     <script src="js/stock.js"></script>
     <script src="js/directive.js"></script>
+    <script src="js/config.js"></script>
     
     <!-- StyleSheet -->
     <link rel="stylesheet" href="styles/app.css">
@@ -21,7 +22,7 @@
     <h2>Stock App</h2>
     
     <p>Buscar : <input type="text" ng-model="searchProduct"></p>
-    
+    <div ng-view></div>
    <product-grid></product-grid>
    <navbar-stock></navbar-stock>
   </body>
