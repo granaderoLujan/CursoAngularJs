@@ -1,19 +1,19 @@
 'use strict';
 angular.module('stockApp')
-.controller('StockController' , function($scope) {
-     $scope.products = [
-        {code:'CP0001', description:'iPhone 7', price:700, active:true, notes:'Great cell phone', picture: '0001.jpg'},
-        {code:'CP0002', description:'Tango 300', price:5, active:true, notes:'Very Old cell phone',  picture: '0002.jpg'},
-        {code:'CP0003', description:'Nokia 1100', price:1000, active:true, notes:'Very Cool cell phone',  picture: '0003.jpg'},
-        {code:'PC0001', description:'Apple Mackbook Pro', price:1500, active:true, notes:'Very Cool notebook',  picture: '0004.jpg'},
-      ];
-      $scope.save = function(){
-        $scope.products.push({ 
-          code : $scope.code, 
-          description : $scope.description, 
-          price : $scope.price, 
-          active : $scope.active, 
-          notes : $scope.notes, 
-          picture : 'test.jpg'});
-      };
-});
+.controller('StockController', ['$scope', 'StockService', function($scope, StockService){
+  $scope.selectedVendor = '';
+  $scope.vendors = [];
+  $scope.products = [];
+	  
+	  var init = function() {
+		StockService.GetAllProducts().then(function(response){      
+			$scope.products = response.data;
+		});
+    StockService.GetAllVendors(),then(function(response){
+      $scope.vendors = response.data;
+    })
+    };
+	  
+	  init();
+
+}]);
