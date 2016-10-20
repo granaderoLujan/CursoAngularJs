@@ -1,5 +1,5 @@
 'use strict';
-angular.module('stockApp')
+angular.module('stockModule')
 .controller('StockController', ['$scope', 'StockService', function($scope, StockService){
   $scope.selectedVendor = '';
   $scope.vendors = [];

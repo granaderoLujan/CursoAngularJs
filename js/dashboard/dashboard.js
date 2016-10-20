@@ -1,6 +1,6 @@
 'use strict';
 angular.module('dashboardModule')
-.controller('dashboardModule', function($scope){
+.controller('DashboardController', function($scope){
     $scope.tiles = [{
         id: 1,
         label : 'Products',
