@@ -5,11 +5,11 @@ var app = angular.module('stockApp');
 app.config(function($routeProvider){
     $routeProvider
     .when("/stock/list", {
-        templateUrl : "partialViews/list.html",
+        templateUrl : "partialViews/stock/list.html",
         controller:'StockController'
     })
     .when("/stock/add", {
-        templateUrl : "partialViews/add.html",
+        templateUrl : "partialViews/stock/add.html",
         controller: 'StockController'
     })
     .when("/dashboard",{
@@ -20,7 +20,11 @@ app.config(function($routeProvider){
         templateUrl : "partialViews/account/login.html",
         controller : "AccountController"
     })
-    .otherwise({rediretTo : '/dashboard'});
+  .when("/account/user-info", {
+    templateUrl : "partialViews/account/user-info.html",
+    controller: 'AccountController'
+  })
+    .otherwise({redirectTo : '/dashboard'});
 
     console.log("Configuration del módulo");
     
@@ -45,5 +49,5 @@ app.config(function(authProvider) {
 app.constant('appGlobals', {
     appName: 'Stock App | AngularJs',
     appVersion: 'v0.1',
-	appApiUri: 'http://localhost:8089/api'
+	appApiUri: 'http://localhost:8090/api'
 });

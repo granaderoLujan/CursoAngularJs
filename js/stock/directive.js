@@ -1,9 +1,12 @@
 'use strict';
 (function(){
-var app = angular.module('stockApp');
-app.directive("navbarStock", function(){
+var app = angular.module('stockModule');
+app.directive("crudActions", function(){
     return{
-        template : '<a class="btn btn-success" href="/#/stock/add.html"><span class="glyphicon glyphicon-plus"></span>Agregar Producto</a>',
+        controller : function($scope, stockGlobals){
+            $scope.moduleName = stockGlobals.moduleName;
+        },
+        template : '<a class="btn btn-success" href="/#/{{moduleName}}/add"><span class="glyphicon glyphicon-plus"></span>Agregar Producto</a>',
         restrict : "E" //Class
     };
 });
@@ -12,8 +15,12 @@ app.directive("productGrid",function(){
     return{
         replace : true,
         restrict : "E", //Element Name
-        templteUrl : 'partialsViews/stock/list.html'
-    }
+        templateUrl : 'partialViews/stock/grid.html',
+        controller: function($scope){
+
+        },
+        link : function($scope, element, attrs){ }
+    };
 });
 })();
 
@@ -28,11 +35,8 @@ app.directive("productGrid",function(){
 /*	app.directive("crudActions", ['stockGlobals', function(stockGlobals) {
 		
 		return {
-			controller: function($scope, stockGlobals){
-				$scope.moduleName = stockGlobals.moduleName;
-			},
 			restrict : "E",//Restringe a nivel elemento HTML
-			template : '<p><a href="/#/{{moduleName}}/add">+ Agregar Producto</a> | <a href="#" ng-click="print()">Imprimir</a></p>'
+			template : '<p><a href="/#/stock/add">+ Agregar Producto</a> | <a href="#" ng-click="print()">Imprimir</a></p>'
 		};
 	}]);
     */

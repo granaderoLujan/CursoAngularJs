@@ -13,11 +13,11 @@ angular.module('stockModule')
                    });
     };
 
-    service.GetAllVendors = function(){
-        return $http.get("/json-data/vendors.json")
-                    .then(function(response){
-                        return response;
-                    });
+  service.GetAllVendors = function () {
+        return $http.get("/json-data/vendors.json") //json generado a mano para el ejemplo. 
+                   .then(function (response) {
+                       return response;
+                   });
     };
 
     return service;

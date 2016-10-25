@@ -1,20 +1,11 @@
-<table class="table table-striped"> 
-    <thead>
-        <tr>
-            <th>Codigo</th>
-            <th>Descripcion</th>
-            <th>Precio</th>
-            <th>Foto</th>
-            <th>Notas</th>
-        </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="product in products | filter : searchProduct | orderBy:'price'">                
-        <td>{{product.code | productCode}}</td>
-        <td>{{product.description | uppercase}}</td>
-        <td>{{product.price | currency}}</td>
-        <td><img ng-src="img/{{product.picture}}" width="100px" height="100px"></td>
-        <td>{{product.notes | reverse}}</td>
-    </tr>      
-    </tbody>
-</table>
+<div ng-app="stockModule">
+	<div class="col-md-3">
+	<p><label>Buscar :</label> <input type="text" class="form-control input-sm" ng-model="searchProduct"></p>
+		<p>
+	<crud-actions></crud-actions>
+		</p>
+	</div>
+	<div>
+		<product-grid></product-grid>		
+	</div>
+</div>
